@@ -1,0 +1,10 @@
+tornado==2.4.1
+motor==0.1
+schematics
+psycopg2
+momoko
+numpy
+scipy
+pyzmq
+pandas
+arrow
