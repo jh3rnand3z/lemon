@@ -2,8 +2,8 @@ base:
   '*':
     - global
 data:
-  'webserver*dev*':
-    - webserver
+  'dsecond.iofun.io':
+    - postgresql
   'db*dev*':
     - db
 rtc:
