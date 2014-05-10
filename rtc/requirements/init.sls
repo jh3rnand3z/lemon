@@ -1,15 +1,14 @@
+{% set kernel_release = salt['grains.get']('kernelrelease', '') %}
+
 packages:
     pkg.installed:
         - names:
-            - wget
-            - htop
-            - less
             - libssl-dev
             - python-dev
             - libncurses5-dev
             - libnewt-dev
             - libxml2-dev
-            - linux-headers-$(uname -r)
+            - linux-headers-{{ kernel_release }}
             - libsqlite3-dev
             - uuid-dev
             - uuid
