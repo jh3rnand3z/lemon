@@ -1,6 +1,6 @@
 {% set kernel_release = salt['grains.get']('kernelrelease', '') %}
 
-packages:
+rtc-packages:
     pkg.installed:
         - names:
             - build-essential
@@ -17,7 +17,7 @@ packages:
             - odbcinst
             - unixodbc
             - unixodbc-dev
-            - libsrtp-dev
+            - libsrtp0-dev
             - libgmime-2.6-dev
             - libspeexdsp-dev
             - speex
