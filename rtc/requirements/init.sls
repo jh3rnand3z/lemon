@@ -3,6 +3,7 @@
 packages:
     pkg.installed:
         - names:
+            - build-essential
             - libssl-dev
             - python-dev
             - libncurses5-dev
