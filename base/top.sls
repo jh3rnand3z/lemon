@@ -2,10 +2,10 @@ base:
   '*':
     - global
 data:
-  'dsecond.iofun.io':
+  'sql*data*':
     - postgresql
-  'db*dev*':
-    - db
+  'mongo*data*':
+    - mongodb
 rtc:
   'webserver*qa*':
     - webserver
