@@ -7,12 +7,16 @@ data:
   'mongo*data*':
     - mongodb
 rtc:
-  'webserver*qa*':
-    - webserver
-  'db*qa*':
-    - db
+  'worker*rtc*':
+    - asterisk
+  'proxy*rtc*':
+    - kamailio
+  'ice*rtc*':
+    - rfc5766-turn-server
+  'rtp*rtc*':
+    - rtpengine
 web:
-  'webserver*prod*':
-    - webserver
-  'db*prod*':
-    - db
+  'worker*web*':
+    - mango
+  'proxy*web*':
+    - nginx
