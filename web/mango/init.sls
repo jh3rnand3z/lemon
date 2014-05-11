@@ -8,4 +8,5 @@ include:
         - requirements: salt://mango/requirements.txt
         - require:
             - pkg: python-dev
+            - pkg: python-pip
             - pkg: python-virtualenv
