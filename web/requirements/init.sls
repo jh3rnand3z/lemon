@@ -1,8 +1,9 @@
-packages:
+web-packages:
     pkg.installed:
         - names:
             - python-virtualenv
             - python-dev
+            - python-pip
             - libatlas-dev
             - libatlas3gf-base
             - libpng12-dev
@@ -13,3 +14,4 @@ packages:
             - liblapack-dev
             - gfortran
             - build-essential
+            - libpq-dev
