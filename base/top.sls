@@ -1,6 +1,7 @@
 base:
   '*':
     - global
+    - user
 data:
   'sql*data*':
     - postgresql
