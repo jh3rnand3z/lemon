@@ -1,23 +1,24 @@
 base:
   '*':
     - global
+    - github
     - user
 data:
-  'sql*data*':
+  'data*sql*':
     - postgresql
-  'mongo*data*':
+  'data*mongo*':
     - mongodb
 rtc:
-  'worker*rtc*':
+  'rtc*worker*':
     - asterisk
-  'proxy*rtc*':
+  'rtc*proxy*':
     - kamailio
-  'ice*rtc*':
+  'rtc*ice*':
     - rfc5766-turn-server
-  'rtp*rtc*':
+  'rtc*engine*':
     - rtpengine
 web:
-  'worker*web*':
+  'web*worker*':
     - mango
-  'proxy*web*':
+  'web*proxy*':
     - nginx
