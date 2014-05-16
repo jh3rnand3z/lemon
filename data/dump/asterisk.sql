@@ -266,18 +266,27 @@ ALTER TABLE ONLY sip ALTER COLUMN id SET DEFAULT nextval('sip_id_seq'::regclass)
 
 ALTER TABLE ONLY sip_regs ALTER COLUMN id SET DEFAULT nextval('sip_regs_id_seq'::regclass);
 
+
+--
+-- Data for Name: cdr; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cdr (id, calldate, clid, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield) FROM stdin;
+\.
+
+
+--
+-- Name: cdr_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('cdr_id_seq', 1, false);
+
+
 --
 -- Data for Name: sip; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY sip (id, name, accountcode, amaflags, callcounter, busylevel, allowoverlap, allowsubscribe, videosupport, maxcallbitrate, rfc2833compensate, "session-timers", "session-expires", "session-minse", "session-refresher", t38pt_usertpsource, sendrpid, outboundproxy, callbackextension, timert1, timerb, qualifyfreq, constantssrc, contactpermit, contactdeny, usereqphone, textsupport, faxdetect, buggymwi, auth, fullname, trunkname, cid_number, callingpres, mohinterpret, mohsuggest, parkinglot, hasvoicemail, subscribemwi, vmexten, autoframing, rtpkeepalive, "call-limit", g726nonstandard, ignoresdpversion, allowtransfer, dynamic, sippasswd, callgroup, callerid, directmedia, context, defaultip, dtmfmode, fromuser, fromdomain, host, insecure, trustrpid, progressinband, promiscredir, useclientcode, setvar, language, mailbox, md5secret, transport, nat, permit, deny, mask, pickupgroup, port, qualify, restrictcid, rtptimeout, rtpholdtimeout, secret, remotesecret, type, username, disallow, allow, musiconhold, regseconds, ipaddr, regexten, cancallforward, canreinvite, lastms, useragent, defaultuser, fullcontact, regserver, subscribecontext, avpf, encryption) FROM stdin;
-3	intercalls-t001	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N		\N	\N	yes	from_intercalls	\N	\N	7624401838	\N	sip.inter-calls.net	invite	yes	yes	yes	yes	\N	\N	\N	\N	\N	force_rport	\N	\N	\N	\N	\N	yes	\N	\N	\N	sfG.4g_3gX$2	\N	friend		all	g729	\N	0	\N	\N	yes	no	\N	\N	7624401838	\N	\N	\N	\N	\N
-6	intercalls-t002	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	sfG.4g_3gX	\N	\N	yes	from_intercalls	\N	\N	4732252171	\N	sip.inter-calls.net	invite	yes	yes	yes	yes	\N	\N	\N	\N	\N	force_rport	\N	\N	\N	\N	\N	yes	\N	\N	\N		\N	friend		all	g729	\N	0	\N	\N	yes	no	\N	\N	4732252171	\N	\N	\N	\N	\N
-8	idt-s001	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	yes	from_idt	\N	\N	\N	\N	216.97.129.6	invite	yes	yes	yes	yes	\N	\N	\N	\N	\N	no	\N	\N	\N	\N	\N	yes	\N	\N	\N	\N	\N	friend	\N	all	g729,gsm,alaw,ulaw	\N	0	\N	\N	yes	no	\N	\N	\N	\N	\N	\N	\N	\N
-1	jchassoul	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	S13r22eqwSIPjchassoul	1	Jean Chassoul	yes	dialplan-accounts	\N	rfc2833	\N	\N	dynamic	\N	yes	yes	yes	yes	\N	en	\N	\N	\N	force_rport	\N	\N	\N	1	56386	yes	\N	\N	\N	\N	\N	friend	\N	all	gsm,g729,ulaw,alaw	\N	1385492396	201.193.44.196	\N	no	no	152	Grandstream GXP2000 1.1.1.7	jchassoul	sip:jchassoul@201.193.44.196:56386		\N	no	no
-7	jhernandez	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N		1	Jose Hernandez	yes	dialplan-accounts	\N	rfc2833	\N	\N	dynamic	invite	yes	yes	yes	yes	\N	en	\N	\N	\N		\N	\N	\N	1	1044	yes	\N	\N	\N	J12h10SIPjhernandez	\N	friend	\N	all	gsm,g729,alaw,ulaw	\N	1385493623	186.32.189.58	\N	no	yes	91	Cisco/SPA303-7.4.5	jhernandez	sip:jhernandez@186.32.189.58:1044		\N	no	no
-4	itellum-s001	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	yes	from_itellum	\N	\N	\N	\N	74.115.92.244	invite	yes	yes	yes	yes	\N	\N	\N	\N	\N	force_rport	\N	\N	\N	\N	\N	yes	\N	\N	\N	\N	\N	friend	\N	all	g729,gsm,alaw,ulaw	\N	0	\N	\N	yes	no	\N	\N	\N	\N	\N	\N	\N	\N
-5	itellum-s002	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	yes	from_itellum	\N	\N	\N	\N	199.83.189.162	invite	yes	yes	yes	yes	\N	\N	\N	\N	\N	force_rport	\N	\N	\N	\N	\N	yes	\N	\N	\N	\N	\N	friend	\N	all	g729,gsm,alaw,ulaw	\N	0	\N	\N	yes	no	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -285,7 +294,7 @@ COPY sip (id, name, accountcode, amaflags, callcounter, busylevel, allowoverlap,
 -- Name: sip_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('sip_id_seq', 8, true);
+SELECT pg_catalog.setval('sip_id_seq', 1, false);
 
 
 --
