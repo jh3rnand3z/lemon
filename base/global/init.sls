@@ -4,4 +4,5 @@ packages:
             - htop
             - less
             - screen
+            - tmux
             - wget
