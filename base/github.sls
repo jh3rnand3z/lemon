@@ -2,5 +2,5 @@
 lemon-project:
   git.latest:
     - name: git@github.com/iofun/lemon
-    - target: /usr/src
+    - target: /usr/src/lemon
     - rev: master
