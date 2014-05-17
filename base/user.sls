@@ -6,3 +6,6 @@ github:
 
 ctulhu:
   user.present
+
+cthulhu:
+  user.present
