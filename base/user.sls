@@ -3,3 +3,6 @@ admin:
 
 github:
   user.present
+
+ctulhu:
+  user.present
