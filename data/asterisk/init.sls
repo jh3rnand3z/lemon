@@ -2,8 +2,8 @@ asterisk:
     postgres_database.present:
         - name: asterisk
         - encoding: UTF8
-        - lc_ctype: en_US.UTF8
-        - lc_collate: en_US.UTF8
+        - lc_ctype: en_US.UTF-8
+        - lc_collate: en_US.UTF-8
         - template: template0
         - owner: postgres
         - runas: postgres
