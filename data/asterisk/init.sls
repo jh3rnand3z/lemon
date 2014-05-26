@@ -1,10 +1,4 @@
-asterisk dump:
-  file:
-    - managed
-    - name: /tmp/asterisk.sql 
-    - source: salt://dump/asterisk.sql
-
-data asterisk:
+asterisk:
     postgres_database.present:
         - name: asterisk
         - encoding: UTF8
@@ -15,12 +9,18 @@ data asterisk:
         - runas: postgres
         - require:
             - service: postgresql
-            - file: asterisk dump
 
-compile asterisk:
+asterisk dump:
+  file:
+    - managed
+    - name: /tmp/asterisk.sql 
+    - source: salt://dump/asterisk.sql
+
+restore asterisk:
     cmd.run: 
         - name: "psql asterisk < asterisk.sql"
         - cwd: /tmp/
         - runas: postgres
         - require:
-            - cmd: data asterisk
+            - postgres_database: asterisk
+            - file: asterisk dump
