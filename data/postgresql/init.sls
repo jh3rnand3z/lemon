@@ -9,3 +9,8 @@ postgresql:
   pkg.latest:
     - name: postgresql-9.3
     - refresh: True
+
+  service.running:
+    - enabled: True
+    - watch:
+      - file: /etc/postgresql/9.3/main/pg_hba.conf
