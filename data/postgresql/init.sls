@@ -21,6 +21,6 @@ postgresql:
     - refresh: True
 
   service.running:
-    - enabled: True
+    - enable: True
     - watch:
       - file: /etc/postgresql/9.3/main/pg_hba.conf
