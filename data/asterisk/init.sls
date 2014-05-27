@@ -25,5 +25,3 @@ restore asterisk:
         - require:
             - postgres_database: asterisk
             - file: asterisk dump
-
-    cmd.run:
