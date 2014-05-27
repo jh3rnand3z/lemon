@@ -6,6 +6,7 @@ base:
 data:
   'data*sql*':
     - postgresql
+    - asterisk
   'data*mongo*':
     - mongodb
 rtc:
