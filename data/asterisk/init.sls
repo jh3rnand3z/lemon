@@ -20,7 +20,7 @@ restore asterisk:
     cmd.run: 
         - name: "psql asterisk < asterisk.sql"
         - cwd: /tmp/
-        - runas: postgres
+        - user: postgres
         - require:
             - postgres_database: asterisk
             - file: asterisk dump
