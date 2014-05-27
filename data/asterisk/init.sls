@@ -6,7 +6,7 @@ asterisk:
         - lc_collate: en_US.UTF-8
         - template: template0
         - owner: postgres
-        - runas: postgres
+        - user: postgres
         - require:
             - service: postgresql
 
@@ -18,9 +18,12 @@ asterisk dump:
 
 restore asterisk:
     cmd.run: 
-        - name: "psql asterisk < asterisk.sql"
+        - name: "psql asterisk < asterisk.sql && echo 'true' > /var/lib/postgresql/asterisk"
+        - unless: "cat /var/lib/postgresql/asterisk"
         - cwd: /tmp/
         - user: postgres
         - require:
             - postgres_database: asterisk
             - file: asterisk dump
+
+    cmd.run:
