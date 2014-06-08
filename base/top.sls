@@ -1,31 +1,10 @@
 base:
 
   '*':
+    - erlang
     - global
     - github
     - user
-
-
-ai:
-
-  'ai_nodes':
-    -match: nodegroup
-
-  'ai_clusters':
-    -match: nodegroup
-
-  'ai_cohorts':
-    -match: nodegroup
-
-  'ai_clouds':
-    -match: nodegroup
-
-  'ai_overlords'
-    -match: nodegroups
-
-  'ai_drones'
-    -match: nodegroups
-
 
 data:
 
@@ -36,17 +15,6 @@ data:
   'data*mongo*worker':
     - mongodb
 
-  'data_nodes':
-    -match: nodegroups
-
-  'data_clusters':
-    -match: nodegroups
-
-  'data_cohorts':
-    -match: nodegroups
-
-  'data_clouds':
-    -match: nodegroups
 
   'data_overlords'
     -match: nodegroups
@@ -71,17 +39,6 @@ rtc:
   'rtc*engine*':
     - rtpengine
 
-  'rtc_nodes':
-    -match: nodegroups
-
-  'rtc_clusters':
-    -match: nodegroups
-
-  'rtc_cohorts':
-    -match: nodegroups
-
-  'rtc_clouds':
-    -match: nodegroups
 
   'rtc_cebus'
     -match: nodegroups
@@ -106,17 +63,6 @@ web:
   'web*proxy*':
     - nginx
 
-  'web_nodes':
-    -match: nodegroups
-
-  'web_clusters'
-    -match: nodegroups
-
-  'web_cohorts'
-    -match: nodegroups
-
-  'web_clouds'
-    -match: nodegroups
 
   'web_cebus':
     - match: nodegroup
