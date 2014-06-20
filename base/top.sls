@@ -9,34 +9,41 @@ base:
 
 data:
 
-  '*sql*worker':
+  sql_workers_1:
+    - match: nodegroup
     - postgresql
     - asterisk
 
-  '*mongo*worker':
+  mongo_workers_1:
+    - match: nodegroup
     - mongodb
 
 
 rtc:
 
-  'rtc*worker*':
+  rtc_workers_1:
+    - match: nodegroup
     - asterisk
 
-  'rtc*proxy*':
+  rtc_overlords_1:
+    - match: nodegroup
     - kamailio
 
-  'rtc*ice*':
+  rtc_ice_1:
+    - match: nodegroup
     - coturn
 
-  'rtc*engine*':
+  rtc_engine_1':
+    - match: nodegroup
     - rtpengine
 
 
 web:
 
-  'web*worker*':
+  web_workers_1:
+    - match: nodegroup
     - mango
 
-  'web*proxy*':
+  web_overlords_1:
+    - match: nodegroup
     - nginx
-
