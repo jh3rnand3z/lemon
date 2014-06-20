@@ -22,5 +22,3 @@ rtc-packages:
             - libspeexdsp-dev
             - speex
             - libspeex-dev
-
-rtc-odbc:
