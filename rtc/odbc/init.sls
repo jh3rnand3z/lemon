@@ -7,6 +7,7 @@ odbc.ini:
     file.managed:
         - name: /etc/odbc.ini
         - source: salt://odbc/odbc.ini
+        - template: jinja
         - require:
             - pkg: odbc
 
