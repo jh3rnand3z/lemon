@@ -6,13 +6,13 @@ odbc:
 odbc.ini:
     file.managed:
         - name: /etc/odbc.ini
-        - source: salt://rtc/odbc/odbc.ini
+        - source: salt://odbc/odbc.ini
         - require:
             - pkg: odbc
 
 odbcinst.ini:
     file.managed:
         - name: /etc/odbcinst.ini
-        - source: salt://rtc/odbc/odbcinst.ini
+        - source: salt://odbc/odbcinst.ini
         - require:
             - pkg: odbc
