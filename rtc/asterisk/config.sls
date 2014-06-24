@@ -1,6 +1,11 @@
 include:
     - asterisk
 
+acl.conf:
+    file.managed:
+        - name: /etc/asterisk/acl.conf
+        - source: salt://asterisk/config/acl.conf
+
 alarmreceiver.conf:
     file.managed:
         - name: /etc/asterisk/alarmreceiver.conf
@@ -20,6 +25,11 @@ asterisk.conf:
     file.managed:
         - name: /etc/asterisk/asterisk.conf
         - source: salt://asterisk/config/asterisk.conf
+
+ccss.conf:
+    file.managed:
+        - name: /etc/asterisk/ccss.conf
+        - source: salt://asterisk/config/ccss.conf
 
 cdr.conf:
     file.managed:
@@ -50,6 +60,11 @@ cel.conf:
     file.managed:
         - name: /etc/asterisk/cel.conf
         - source: salt://asterisk/config/cel.conf
+
+cel_custom.conf:
+    file.managed:
+        - name: /etc/asterisk/cel_custom.conf
+        - source: salt://asterisk/config/cel_custom.conf
 
 cel_odbc.conf:
     file.managed:
@@ -212,6 +227,11 @@ sip_notify.conf:
     file.managed:
         - name: /etc/asterisk/sip_notify.conf
         - source: salt://asterisk/config/sip_notify.conf
+
+udptl.conf:
+    file.managed:
+        - name: /etc/asterisk/udptl.conf
+        - source: salt://asterisk/config/udptl.conf
 
 voicemail.conf:
     file.managed:
