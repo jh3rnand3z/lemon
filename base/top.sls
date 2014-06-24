@@ -24,6 +24,7 @@ rtc:
   rtc_workers_1:
     - match: nodegroup
     - asterisk
+    - asterisk.config
     - odbc
 
   rtc_overlords_1:

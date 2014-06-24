@@ -1,11 +1,12 @@
 base:
 
-  '*':
-    - settings
+    '*':
+        - settings
 
 
 rtc:
 
-  rtc_workers_1:
-    - match: nodegroup
-    - odbc
+    rtc_workers_1:
+        - match: nodegroup
+        - asterisk
+        - odbc
