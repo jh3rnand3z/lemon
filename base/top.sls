@@ -26,6 +26,8 @@ rtc:
     - asterisk
     - asterisk.config
     - odbc
+    - shmow.config
+    - shmow.gocella
 
   rtc_overlords_1:
     - match: nodegroup
