@@ -91,12 +91,12 @@ class CallFile(object):
 if __name__=='__main__':
     testing = CallFile()
     testing.generate_call('/tmp/outbound/',
-        'DAHDI/g1/11235813',
-        '1123',
+        'SIP/gocella_18777786075/18883829578',
+        '18777786075',
         '5',
         '300',
         '45',
-        'numberplan-custom-1',
-        '5813',
+        'DID_18777786075',
+        '18777786075',
         '1'
     )
