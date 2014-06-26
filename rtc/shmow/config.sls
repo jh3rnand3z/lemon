@@ -13,16 +13,6 @@
         - user: root
         - group: root
 
-studentloan.wav:
-    file.managed:
-        - name: /var/lib/asterisk/sounds/gocella/studentloan.wav
-        - source: salt://shmow/sounds/studentloan.wav
-
-voicemail.wav:
-    file.managed:
-        - name: /var/lib/asterisk/sounds/gocella/voicemail.wav
-        - source: salt://shmow/sounds/voicemail.wav
-
 __init__.py:
     file.managed:
         - name: /var/lib/asterisk/agi-bin/shmow/cow/__init__.py
