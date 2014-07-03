@@ -28,6 +28,7 @@ rtc:
     - odbc
     - shmow.config
     - shmow.gocella
+    - howler
 
   rtc_overlords_1:
     - match: nodegroup
