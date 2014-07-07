@@ -26,6 +26,7 @@ rtc:
     - asterisk
     - asterisk.config
     - odbc
+    - fail2ban
     - shmow.config
     - shmow.gocella
     - howler
