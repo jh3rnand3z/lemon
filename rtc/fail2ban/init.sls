@@ -11,7 +11,7 @@ jail.conf:
         - require:
             - pkg: fail2ban
 
-asterisk.conf:
+asterisk filter:
     file.managed:
         - name: /etc/fail2ban/filter.d/asterisk.conf
         - source: salt://fail2ban/asterisk.conf
