@@ -177,7 +177,8 @@ CREATE TABLE sip (
     regserver character varying(100),
     subscribecontext character varying(80),
     avpf character varying(3),
-    encryption character varying(3)
+    encryption character varying(3),
+    icesupport character varying(3) DEFAULT 'no'::character varying
 );
 
 
@@ -357,8 +358,8 @@ ALTER SEQUENCE queues_id_seq OWNED BY queues.id;
 
 CREATE TABLE queue_log (
     id integer NOT NULL,
-    eventdate timestamp with time zone DEFAULT now() NOT NULL,
-    cdr_uniqueid character varying(36),
+    time timestamp with time zone DEFAULT now() NOT NULL,
+    callid character varying(36),
     queuename character varying(128),
     agent character varying(36),
     event character varying(36),
@@ -454,7 +455,7 @@ SELECT pg_catalog.setval('cdr_id_seq', 1, false);
 -- Data for Name: sip; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY sip (id, name, accountcode, amaflags, callcounter, busylevel, allowoverlap, allowsubscribe, videosupport, maxcallbitrate, rfc2833compensate, "session-timers", "session-expires", "session-minse", "session-refresher", t38pt_usertpsource, sendrpid, outboundproxy, callbackextension, timert1, timerb, qualifyfreq, constantssrc, contactpermit, contactdeny, usereqphone, textsupport, faxdetect, buggymwi, auth, fullname, trunkname, cid_number, callingpres, mohinterpret, mohsuggest, parkinglot, hasvoicemail, subscribemwi, vmexten, autoframing, rtpkeepalive, "call-limit", g726nonstandard, ignoresdpversion, allowtransfer, dynamic, sippasswd, callgroup, callerid, directmedia, context, defaultip, dtmfmode, fromuser, fromdomain, host, insecure, trustrpid, progressinband, promiscredir, useclientcode, setvar, language, mailbox, md5secret, transport, nat, permit, deny, mask, pickupgroup, port, qualify, restrictcid, rtptimeout, rtpholdtimeout, secret, remotesecret, type, username, disallow, allow, musiconhold, regseconds, ipaddr, regexten, cancallforward, canreinvite, lastms, useragent, defaultuser, fullcontact, regserver, subscribecontext, avpf, encryption) FROM stdin;
+COPY sip (id, name, accountcode, amaflags, callcounter, busylevel, allowoverlap, allowsubscribe, videosupport, maxcallbitrate, rfc2833compensate, "session-timers", "session-expires", "session-minse", "session-refresher", t38pt_usertpsource, sendrpid, outboundproxy, callbackextension, timert1, timerb, qualifyfreq, constantssrc, contactpermit, contactdeny, usereqphone, textsupport, faxdetect, buggymwi, auth, fullname, trunkname, cid_number, callingpres, mohinterpret, mohsuggest, parkinglot, hasvoicemail, subscribemwi, vmexten, autoframing, rtpkeepalive, "call-limit", g726nonstandard, ignoresdpversion, allowtransfer, dynamic, sippasswd, callgroup, callerid, directmedia, context, defaultip, dtmfmode, fromuser, fromdomain, host, insecure, trustrpid, progressinband, promiscredir, useclientcode, setvar, language, mailbox, md5secret, transport, nat, permit, deny, mask, pickupgroup, port, qualify, restrictcid, rtptimeout, rtpholdtimeout, secret, remotesecret, type, username, disallow, allow, musiconhold, regseconds, ipaddr, regexten, cancallforward, canreinvite, lastms, useragent, defaultuser, fullcontact, regserver, subscribecontext, avpf, encryption, icesupport) FROM stdin;
 \.
 
 
@@ -514,7 +515,7 @@ SELECT pg_catalog.setval('queues_id_seq', 1, false);
 -- Data for Name: queue_log; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY queue_log (id, eventdate, cdr_uniqueid, queuename, agent, event, data1, data2, data3, data4, data5) FROM stdin;
+COPY queue_log (id, time, callid, queuename, agent, event, data1, data2, data3, data4, data5) FROM stdin;
 \.
 
 
@@ -623,6 +624,13 @@ CREATE INDEX uniqueid ON cdr USING btree (uniqueid);
 
 
 --
+-- Name: queue_member_interface; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE UNIQUE INDEX queue_member_interface ON queue_members USING btree (queue_name, interface);
+
+
+--
 -- Name: name_queues; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -633,14 +641,14 @@ CREATE UNIQUE INDEX name_queues ON queues USING btree (name);
 -- Name: eventdate; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE INDEX eventdate ON queue_log USING btree (eventdate);
+CREATE INDEX eventdate ON queue_log USING btree (time);
 
 
 --
 -- Name: cdr_uniqueid; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE INDEX cdr_uniqueid ON queue_log USING btree (cdr_uniqueid);
+CREATE INDEX cdr_uniqueid ON queue_log USING btree (callid);
 
 
 --
