@@ -47,9 +47,9 @@ CREATE TABLE cdr (
     billsec integer DEFAULT 0 NOT NULL,
     disposition character varying(45),
     amaflags integer DEFAULT 0 NOT NULL,
-    accountcode character varying(20),
-    uniqueid character varying(150),
-    userfield character varying(255)
+    accountcode character varying(36),
+    uniqueid character varying(36),
+    userfield character varying(36)
 );
 
 
@@ -247,6 +247,153 @@ ALTER SEQUENCE sip_regs_id_seq OWNED BY sip_regs.id;
 
 
 --
+-- Name: queue_member_table; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE queue_member_table (
+    0id integer NOT NULL,
+    membername character varying(36),
+    queue_name character varying(128),
+    interface character varying(128),
+    penalty integer,
+    paused integer
+);
+
+
+ALTER TABLE public.queue_member_table OWNER TO postgres;
+
+--
+-- Name: queue_member_table_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE queue_member_table_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.queue_member_table_id_seq OWNER TO postgres;
+
+--
+-- Name: queue_member_table_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE queue_member_table_id_seq OWNED BY queue_member_table.id;
+
+
+--
+-- Name: queue_table; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE queue_table (
+    id integer NOT NULL,
+    name character varying(128) NOT NULL,
+    musiconhold character varying(128),
+    announce character varying(128),
+    context character varying(128),
+    timeout integer,
+    monitor_join boolean,
+    monitor_format character varying(128),
+    queue_youarenext character varying(128),
+    queue_thereare character varying(128),
+    queue_callswaiting character varying(128),
+    queue_holdtime character varying(128),
+    queue_minutes character varying(128),
+    queue_seconds character varying(128),
+    queue_lessthan character varying(128),
+    queue_thankyou character varying(128),
+    queue_reporthold character varying(128),
+    announce_frequency integer,
+    announce_round_seconds integer,
+    announce_holdtime character varying(128),
+    retry integer,
+    wrapuptime integer,
+    maxlen integer,
+    servicelevel integer,
+    strategy character varying(128),
+    joinempty character varying(128),
+    leavewhenempty character varying(128),
+    eventmemberstatus boolean,
+    eventwhencalled boolean,
+    reportholdtime boolean,
+    memberdelay integer,
+    weight integer,
+    timeoutrestart boolean,
+    periodic_announce character varying(128),
+    periodic_announce_frequency integer,
+    ringinuse boolean,
+    setinterfacevar boolean
+);
+
+
+ALTER TABLE public.queue_table OWNER TO postgres;
+
+--
+-- Name: queue_table_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE queue_table_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.queue_table_id_seq OWNER TO postgres;
+
+--
+-- Name: queue_table_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE queue_table_id_seq OWNED BY queue_table.id;
+
+
+--
+-- Name: queue_log; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE queue_log (
+    id integer NOT NULL,
+    eventdate timestamp with time zone DEFAULT now() NOT NULL,
+    cdr_uniqueid character varying(36),
+    queuename character varying(128),
+    agent character varying(36),
+    event character varying(36),
+    data1 character varying(128),
+    data2 character varying(128),
+    data3 character varying(128),
+    data4 character varying(128),
+    data5 character varying(128)
+);
+
+
+ALTER TABLE public.queue_log OWNER TO postgres;
+
+--
+-- Name: queue_log_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE queue_log_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.queue_log_id_seq OWNER TO postgres;
+
+--
+-- Name: queue_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE queue_log_id_seq OWNED BY queue_log.id;
+
+
+--
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -265,6 +412,27 @@ ALTER TABLE ONLY sip ALTER COLUMN id SET DEFAULT nextval('sip_id_seq'::regclass)
 --
 
 ALTER TABLE ONLY sip_regs ALTER COLUMN id SET DEFAULT nextval('sip_regs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY queue_member_table ALTER COLUMN id SET DEFAULT nextval('queue_member_table_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY queue_table ALTER COLUMN id SET DEFAULT nextval('queue_table_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY queue_log ALTER COLUMN id SET DEFAULT nextval('queue_log_id_seq'::regclass);
 
 
 --
@@ -313,6 +481,51 @@ SELECT pg_catalog.setval('sip_regs_id_seq', 1, false);
 
 
 --
+-- Data for Name: queue_member_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY queue_member_table (id, membername, queue_name, interface, penalty, paused) FROM stdin;
+\.
+
+
+--
+-- Name: queue_member_table_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('queue_member_table_id_seq', 1, false);
+
+
+--
+-- Data for Name: queue_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY queue_table (id, name, musiconhold, announce, context, timeout, monitor_join, monitor_format, queue_youarenext, queue_thereare, queue_callswaiting, queue_holdtime, queue_minutes, queue_seconds, queue_lessthan, queue_thankyou, queue_reporthold, announce_frequency, announce_round_seconds, announce_holdtime, retry, wrapuptime, maxlen, servicelevel, strategy, joinempty, leavewhenempty, eventmemberstatus, eventwhencalled, reportholdtime, memberdelay, weight, timeoutrestart, periodic_announce, periodic_announce_frequency, ringinuse, setinterfacevar) FROM stdin;
+\.
+
+
+--
+-- Name: queue_table_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('queue_table_id_seq', 1, false);
+
+
+--
+-- Data for Name: queue_log; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY queue_log (id, eventdate, cdr_uniqueid, queuename, agent, event, data1, data2, data3, data4, data5) FROM stdin;
+\.
+
+
+--
+-- Name: queue_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('queue_log_id_seq', 1, false);
+
+
+--
 -- Name: cdr_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -334,6 +547,30 @@ ALTER TABLE ONLY sip
 
 ALTER TABLE ONLY sip_regs
     ADD CONSTRAINT sip_regs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: queue_member_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY queue_member_table
+    ADD CONSTRAINT queue_member_table_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: queue_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY queue_table
+    ADD CONSTRAINT queue_table_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sip_regs_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY queue_log
+    ADD CONSTRAINT queue_log_pkey PRIMARY KEY (id);
 
 
 --
@@ -383,6 +620,34 @@ CREATE INDEX src ON cdr USING btree (src);
 --
 
 CREATE INDEX uniqueid ON cdr USING btree (uniqueid);
+
+
+--
+-- Name: name_queue_table; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE UNIQUE INDEX name_queue_table ON queue_table USING btree (name);
+
+
+--
+-- Name: eventdate; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX eventdate ON queue_log USING btree (eventdate);
+
+
+--
+-- Name: cdr_uniqueid; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX cdr_uniqueid ON queue_log USING btree (cdr_uniqueid);
+
+
+--
+-- Name: queuename; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX queuename ON queue_log USING btree (queuename);
 
 
 --
