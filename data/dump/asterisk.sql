@@ -247,10 +247,10 @@ ALTER SEQUENCE sip_regs_id_seq OWNED BY sip_regs.id;
 
 
 --
--- Name: queue_member_table; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- Name: queue_members; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE queue_member_table (
+CREATE TABLE queue_members (
     id integer NOT NULL,
     membername character varying(36),
     queue_name character varying(128),
@@ -260,13 +260,13 @@ CREATE TABLE queue_member_table (
 );
 
 
-ALTER TABLE public.queue_member_table OWNER TO postgres;
+ALTER TABLE public.queue_members OWNER TO postgres;
 
 --
--- Name: queue_member_table_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: queue_members_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE queue_member_table_id_seq
+CREATE SEQUENCE queue_members_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -274,20 +274,20 @@ CREATE SEQUENCE queue_member_table_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.queue_member_table_id_seq OWNER TO postgres;
+ALTER TABLE public.queue_members_id_seq OWNER TO postgres;
 
 --
--- Name: queue_member_table_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: queue_members_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE queue_member_table_id_seq OWNED BY queue_member_table.id;
+ALTER SEQUENCE queue_members_id_seq OWNED BY queue_members.id;
 
 
 --
--- Name: queue_table; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- Name: queues; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE queue_table (
+CREATE TABLE queues (
     id integer NOT NULL,
     name character varying(128) NOT NULL,
     musiconhold character varying(128),
@@ -328,13 +328,13 @@ CREATE TABLE queue_table (
 );
 
 
-ALTER TABLE public.queue_table OWNER TO postgres;
+ALTER TABLE public.queues OWNER TO postgres;
 
 --
--- Name: queue_table_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: queues_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE queue_table_id_seq
+CREATE SEQUENCE queues_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -342,13 +342,13 @@ CREATE SEQUENCE queue_table_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.queue_table_id_seq OWNER TO postgres;
+ALTER TABLE public.queues_id_seq OWNER TO postgres;
 
 --
--- Name: queue_table_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: queues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE queue_table_id_seq OWNED BY queue_table.id;
+ALTER SEQUENCE queues_id_seq OWNED BY queues.id;
 
 
 --
@@ -418,14 +418,14 @@ ALTER TABLE ONLY sip_regs ALTER COLUMN id SET DEFAULT nextval('sip_regs_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY queue_member_table ALTER COLUMN id SET DEFAULT nextval('queue_member_table_id_seq'::regclass);
+ALTER TABLE ONLY queue_members ALTER COLUMN id SET DEFAULT nextval('queue_members_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY queue_table ALTER COLUMN id SET DEFAULT nextval('queue_table_id_seq'::regclass);
+ALTER TABLE ONLY queues ALTER COLUMN id SET DEFAULT nextval('queues_id_seq'::regclass);
 
 
 --
@@ -481,33 +481,33 @@ SELECT pg_catalog.setval('sip_regs_id_seq', 1, false);
 
 
 --
--- Data for Name: queue_member_table; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: queue_members; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY queue_member_table (id, membername, queue_name, interface, penalty, paused) FROM stdin;
+COPY queue_members (id, membername, queue_name, interface, penalty, paused) FROM stdin;
 \.
 
 
 --
--- Name: queue_member_table_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: queue_members_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('queue_member_table_id_seq', 1, false);
+SELECT pg_catalog.setval('queue_members_id_seq', 1, false);
 
 
 --
--- Data for Name: queue_table; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: queues; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY queue_table (id, name, musiconhold, announce, context, timeout, monitor_join, monitor_format, queue_youarenext, queue_thereare, queue_callswaiting, queue_holdtime, queue_minutes, queue_seconds, queue_lessthan, queue_thankyou, queue_reporthold, announce_frequency, announce_round_seconds, announce_holdtime, retry, wrapuptime, maxlen, servicelevel, strategy, joinempty, leavewhenempty, eventmemberstatus, eventwhencalled, reportholdtime, memberdelay, weight, timeoutrestart, periodic_announce, periodic_announce_frequency, ringinuse, setinterfacevar) FROM stdin;
+COPY queues (id, name, musiconhold, announce, context, timeout, monitor_join, monitor_format, queue_youarenext, queue_thereare, queue_callswaiting, queue_holdtime, queue_minutes, queue_seconds, queue_lessthan, queue_thankyou, queue_reporthold, announce_frequency, announce_round_seconds, announce_holdtime, retry, wrapuptime, maxlen, servicelevel, strategy, joinempty, leavewhenempty, eventmemberstatus, eventwhencalled, reportholdtime, memberdelay, weight, timeoutrestart, periodic_announce, periodic_announce_frequency, ringinuse, setinterfacevar) FROM stdin;
 \.
 
 
 --
--- Name: queue_table_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: queues_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('queue_table_id_seq', 1, false);
+SELECT pg_catalog.setval('queues_id_seq', 1, false);
 
 
 --
@@ -550,19 +550,19 @@ ALTER TABLE ONLY sip_regs
 
 
 --
--- Name: queue_member_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- Name: queue_members_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY queue_member_table
-    ADD CONSTRAINT queue_member_table_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY queue_members
+    ADD CONSTRAINT queue_members_pkey PRIMARY KEY (id);
 
 
 --
--- Name: queue_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- Name: queues_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY queue_table
-    ADD CONSTRAINT queue_table_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY queues
+    ADD CONSTRAINT queues_pkey PRIMARY KEY (id);
 
 
 --
@@ -623,10 +623,10 @@ CREATE INDEX uniqueid ON cdr USING btree (uniqueid);
 
 
 --
--- Name: name_queue_table; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+-- Name: name_queues; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE UNIQUE INDEX name_queue_table ON queue_table USING btree (name);
+CREATE UNIQUE INDEX name_queues ON queues USING btree (name);
 
 
 --
