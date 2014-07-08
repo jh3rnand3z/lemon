@@ -251,7 +251,7 @@ ALTER SEQUENCE sip_regs_id_seq OWNED BY sip_regs.id;
 --
 
 CREATE TABLE queue_member_table (
-    0id integer NOT NULL,
+    id integer NOT NULL,
     membername character varying(36),
     queue_name character varying(128),
     interface character varying(128),
