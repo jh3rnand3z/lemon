@@ -21,15 +21,25 @@ data:
 
 rtc:
 
-  rtc_workers_1:
+  ast_workers_1:
     - match: nodegroup
     - asterisk
+    - asterisk.sounds
+    - asterisk.samples
     - asterisk.config
     - odbc
     - fail2ban
     - shmow.config
     - shmow.gocella
     - howler
+
+  fs_workers_1:
+    - match: nodegroup
+    - freeswitch
+    - freeswitch.sounds
+    - freeswitch.samples
+    - freeswitch.config
+    - odbc
 
   rtc_overlords_1:
     - match: nodegroup
