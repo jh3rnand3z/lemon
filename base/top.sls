@@ -23,6 +23,7 @@ rtc:
 
   ast_workers_1:
     - match: nodegroup
+    - overlord.client
     - asterisk
     - asterisk.sounds
     - asterisk.samples
@@ -35,6 +36,7 @@ rtc:
 
   fs_workers_1:
     - match: nodegroup
+    - overlord.client
     - freeswitch
     - freeswitch.sounds
     - freeswitch.samples
@@ -43,14 +45,17 @@ rtc:
 
   rtc_overlords_1:
     - match: nodegroup
+    - overlord
     - kamailio
 
   rtc_ice_1:
     - match: nodegroup
+    - overlord.imp
     - coturn
 
   rtc_engine_1':
     - match: nodegroup
+    - overlord.imp
     - rtpengine
 
 

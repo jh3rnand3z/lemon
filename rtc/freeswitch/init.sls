@@ -1,3 +1,9 @@
+
+adduser --disabled-password  --quiet --system --home /usr/local/freeswitch --gecos "FreeSWITCH Voice Platform" --ingroup daemon freeswitch
+chown -R freeswitch:daemon /usr/local/freeswitch/ 
+chmod -R o-rwx /usr/local/freeswitch/
+
+
 freeswitch-requirements:
     pkg.installed:
         - names:    
