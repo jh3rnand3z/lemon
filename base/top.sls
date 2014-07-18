@@ -1,6 +1,7 @@
 base:
 
   '*':
+    - python
     - erlang
     - global
     - github

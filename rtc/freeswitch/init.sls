@@ -47,6 +47,10 @@ compile freeswitch:
         - require:
             - cmd: bootstrap freeswitch
 
+/etc/grub.conf:
+  file.symlink:
+    - target: /boot/grub/grub.conf
+
 link fs_cli:
     cmd.run:
         - name: "ln -s "
