@@ -1,39 +1,30 @@
+include:
+    - requirements
 
-adduser --disabled-password  --quiet --system --home /usr/local/freeswitch --gecos "FreeSWITCH Voice Platform" --ingroup daemon freeswitch
-chown -R freeswitch:daemon /usr/local/freeswitch/ 
-chmod -R o-rwx /usr/local/freeswitch/
+freeswitch:
+    user.present:
+        - home: /usr/local/freeswitch
+        - groups:
+            - daemon
 
+daemon:
+    group.present:
+        - system: True
+        - addusers:
+            - freeswitch
 
-freeswitch-requirements:
-    pkg.installed:
-        - names:    
-             - autoconf
-             - automake
-             - devscripts
-             - gawk 
-             - g++
-             - git-core
-             - libjpeg-dev
-             - libncurses5-dev
-             - libtool
-             - make
-             - python-dev
-             - gawk
-             - pkg-config
-             - libtiff5-dev
-             - libperl-dev
-             - libgdbm-dev
-             - libdb-dev
-             - gettext
-             - libssl-dev
-             - libcurl4-openssl-dev
-             - libpcre3-dev
-             - libspeex-dev
-             - libspeexdsp-dev
-             - libsqlite3-dev
-             - libedit-dev
+/usr/local/freeswitch:
+    file.directory:
+        - user: freeswitch
+        - group: daemon
+        - mode: 700
+        - makedirs: True
+        - recurse:
+            - user
+            - group
+            - mode
 
-freeswitch-code:
+freeswitch git code:
   git.latest:
     - name: git://git.freeswitch.org/freeswitch.git
     - target: /usr/src/freeswitch
@@ -43,23 +34,23 @@ freeswitch-code:
 bootstrap freeswitch:
     cmd.run:
         - name: "./bootstrap.sh"
-        - unless: which freeswitch
+        - unless: which fs_cli
         - cwd: /usr/src/freeswitch/
         - require:
-            - pkg: freeswitch-requirements
+            - pkg: freeswitch requirements
 
 compile freeswitch:
     cmd.run: 
         - name: "./configure && make && make install"
-        - unless: which freeswitch
+        - unless: which fs_cli
         - cwd: /usr/src/freeswitch/
         - require:
             - cmd: bootstrap freeswitch
 
-make sounds:
-    cmd.run: 
-        - name: "make cd-sounds-install && make cd-moh-install"
-        - unless: which freeswitch
-        - cwd: /usr/src/freeswitch/
+link fs_cli:
+    cmd.run:
+        - name: "ln -s "
+        - unless: which fs_cli
+        - cwd:
         - require:
             - cmd: compile freeswitch

@@ -1,6 +1,9 @@
 include:
     - requirements
 
+asterisk:
+    user.present
+
 asterisk source:
   file:
     - managed

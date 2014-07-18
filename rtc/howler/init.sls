@@ -1,10 +1,10 @@
 include:
     - requirements
 
-/root/venv/howler:
+/home/asterisk/venv/howler:
     virtualenv.managed:
         - no_site_packages: True
-        - user: root
+        - user: asterisk
         - requirements: salt://howler/requirements.txt
         - require:
             - pkg: python-dev
@@ -14,6 +14,6 @@ include:
 howler-project:
   git.latest:
     - name: https://github.com/iofun/howler.git
-    - target: /root/howler
+    - target: /home/asterisk/howler
     - rev: master
-    - user: root
+    - user: asterisk

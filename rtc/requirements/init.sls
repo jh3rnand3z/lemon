@@ -1,6 +1,6 @@
 {% set kernel_release = salt['grains.get']('kernelrelease', '') %}
 
-rtc-packages:
+asterisk packages:
     pkg.installed:
         - names:
             - build-essential
@@ -22,3 +22,32 @@ rtc-packages:
             - libspeexdsp-dev
             - speex
             - libspeex-dev
+
+freeswitch packages:
+    pkg.installed:
+        - names:    
+             - autoconf
+             - automake
+             - devscripts
+             - gawk 
+             - g++
+             - git-core
+             - libjpeg-dev
+             - libncurses5-dev
+             - libtool
+             - make
+             - python-dev
+             - gawk
+             - pkg-config
+             - libtiff5-dev
+             - libperl-dev
+             - libgdbm-dev
+             - libdb-dev
+             - gettext
+             - libssl-dev
+             - libcurl4-openssl-dev
+             - libpcre3-dev
+             - libspeex-dev
+             - libspeexdsp-dev
+             - libsqlite3-dev
+             - libedit-dev
