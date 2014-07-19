@@ -28,10 +28,9 @@ rtc:
     - asterisk.sounds
     - asterisk.samples
     - asterisk.config
+    - asterisk.gocella
     - odbc
     - fail2ban
-    - shmow.config
-    - shmow.gocella
     - howler
 
   fs_workers_1:

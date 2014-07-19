@@ -1,4 +1,4 @@
-web-packages:
+mango packages:
     pkg.installed:
         - names:
             - python-virtualenv
