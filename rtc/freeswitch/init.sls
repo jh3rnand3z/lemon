@@ -33,7 +33,7 @@ freeswitch source:
 untar freeswitch:
     cmd.run:
         - name: "tar -zxf freeswitch-v1.2.stable.tar.gz"
-        - unless: which fs_cli
+        - unless: "which fs_cli"
         - cwd: /usr/src/
         - require:
             - file: freeswitch source
@@ -48,13 +48,13 @@ freeswitch git code:
 bootstrap freeswitch:
     cmd.run:
         - name: "./bootstrap.sh"
-        - unless: which fs_cli
+        - unless: "which fs_cli"
         - cwd: /usr/src/freeswitch/
 
 compile freeswitch:
     cmd.run: 
         - name: "./configure && make && make install"
-        - unless: which fs_cli
+        - unless: "which fs_cli"
         - cwd: /usr/src/freeswitch/
         - require:
             - cmd: bootstrap freeswitch
@@ -62,6 +62,6 @@ compile freeswitch:
 /usr/local/freeswitch/bin/fs_cli:
   file.symlink:
     - target: /usr/local/bin/fs_cli
-    - unless: which fs_cli
+    - unless: "which fs_cli"
     - require:
         - cmd: compile freeswitch
