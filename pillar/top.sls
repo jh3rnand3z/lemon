@@ -3,10 +3,14 @@ base:
     '*':
         - settings
 
-
 rtc:
 
-    rtc_workers_1:
+    ast_workers_1:
         - match: nodegroup
         - asterisk
+        - odbc
+
+    fs_workers_1:
+        - match: nodegroup
+        - freeswitch
         - odbc
