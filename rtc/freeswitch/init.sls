@@ -40,7 +40,7 @@ untar freeswitch:
 
 freeswitch git code:
   git.latest:
-    - name: git://git.freeswitch.org/freeswitch.git
+    - name: https://stash.freeswitch.org/scm/fs/freeswitch.git
     - target: /usr/src/freeswitch
     - rev: v1.2.stable
     - user: root
