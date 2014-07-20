@@ -36,8 +36,6 @@ bootstrap freeswitch:
         - name: "./bootstrap.sh"
         - unless: which fs_cli
         - cwd: /usr/src/freeswitch/
-        - require:
-            - pkg: freeswitch requirements
 
 compile freeswitch:
     cmd.run: 
