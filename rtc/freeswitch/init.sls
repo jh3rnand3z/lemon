@@ -24,6 +24,20 @@ daemon:
             - group
             - mode
 
+freeswitch source:
+  file:
+    - managed
+    - name: /usr/src/freeswitch-v1.2.stable.tar.gz 
+    - source: salt://source/freeswitch-v1.2.stable.tar.gz
+
+untar freeswitch:
+    cmd.run:
+        - name: "tar -zxf freeswitch-v1.2.stable.tar.gz"
+        - unless: which fs_cli
+        - cwd: /usr/src/
+        - require:
+            - file: freeswitch source
+
 freeswitch git code:
   git.latest:
     - name: git://git.freeswitch.org/freeswitch.git
