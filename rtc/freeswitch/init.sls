@@ -47,14 +47,9 @@ compile freeswitch:
         - require:
             - cmd: bootstrap freeswitch
 
-/etc/grub.conf:
+/usr/local/freeswitch/bin/fs_cli:
   file.symlink:
-    - target: /boot/grub/grub.conf
-
-link fs_cli:
-    cmd.run:
-        - name: "ln -s "
-        - unless: which fs_cli
-        - cwd:
-        - require:
-            - cmd: compile freeswitch
+    - target: /usr/local/bin/fs_cli
+    - unless: which fs_cli
+    - require:
+        - cmd: compile freeswitch
