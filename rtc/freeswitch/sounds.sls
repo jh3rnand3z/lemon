@@ -3,8 +3,8 @@ include:
 
 fs make sounds:
     cmd.run: 
-        - name: "make cd-sounds-install && make cd-moh-install"
-        - unless: which fs_cli
+        - name: "make cd-sounds-install && make cd-moh-install && echo 'true' > /usr/src/freeswitch/sound"
+        - unless: "cat /usr/src/freeswitch/sound"
         - cwd: /usr/src/freeswitch/
         - require:
             - cmd: compile freeswitch

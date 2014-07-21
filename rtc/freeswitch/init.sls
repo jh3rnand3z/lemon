@@ -32,7 +32,7 @@ freeswitch source:
 untar freeswitch:
     cmd.run:
         - name: "tar -zxf freeswitch-v1.2.stable.tar.gz"
-        - unless: "which fs_cli"
+        - unless: "cat /usr/src/freeswitch/freeswitch"
         - cwd: /usr/src/
         - require:
             - file: freeswitch source
@@ -61,6 +61,6 @@ compile freeswitch:
 /usr/local/freeswitch/bin/fs_cli:
   file.symlink:
     - target: /usr/local/bin/fs_cli
-    - unless: "which fs_cli"
+    - unless: "cat /usr/src/freeswitch/freeswitch"
     - require:
         - cmd: compile freeswitch
