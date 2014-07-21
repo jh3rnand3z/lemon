@@ -59,9 +59,9 @@ compile freeswitch:
         - require:
             - cmd: bootstrap freeswitch
 
-/usr/local/bin/fs_cli:
+/usr/local/freeswitch/bin/fs_cli:
   file.symlink:
-    - target: /usr/local/freeswitch/bin/fs_cli
+    - target: /usr/local/bin/fs_cli
     - unless: "which fs_cli"
     - require:
         - cmd: compile freeswitch
