@@ -17,7 +17,7 @@ daemon:
     file.directory:
         - user: freeswitch
         - group: daemon
-        - mode: 750
+        - mode: 700
         - recurse:
             - user
             - group
