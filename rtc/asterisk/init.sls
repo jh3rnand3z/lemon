@@ -4,6 +4,46 @@ include:
 asterisk:
     user.present
 
+/var/lib/asterisk:
+    file.directory:
+        - user: asterisk
+        - group: asterisk
+        - recurse:
+            - user
+            - group
+
+/var/run/asterisk:
+    file.directory:
+        - user: asterisk
+        - group: asterisk
+        - recurse:
+            - user
+            - group
+
+/var/log/asterisk:
+    file.directory:
+        - user: asterisk
+        - group: asterisk
+        - recurse:
+            - user
+            - group
+
+/var/spool/asterisk:
+    file.directory:
+        - user: asterisk
+        - group: asterisk
+        - recurse:
+            - user
+            - group
+
+/etc/asterisk:
+    file.directory:
+        - user: asterisk
+        - group: asterisk
+        - recurse:
+            - user
+            - group
+
 asterisk source:
   file:
     - managed
