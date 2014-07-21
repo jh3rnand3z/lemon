@@ -48,13 +48,13 @@ freeswitch git code:
 bootstrap freeswitch:
     cmd.run:
         - name: "./bootstrap.sh"
-        - unless: "which fs_cli"
+        - unless: "cat /usr/src/freeswitch/freeswitch"
         - cwd: /usr/src/freeswitch/
 
 compile freeswitch:
     cmd.run: 
-        - name: "./configure && make && make install"
-        - unless: "which fs_cli"
+        - name: "./configure && make && make install && echo 'true' > /usr/src/freeswitch/freeswitch"
+        - unless: "cat /usr/src/freeswitch/freeswitch"
         - cwd: /usr/src/freeswitch/
         - require:
             - cmd: bootstrap freeswitch
