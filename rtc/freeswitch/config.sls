@@ -18,7 +18,7 @@ conf/sip_profiles/external.xml:
         - source: salt://freeswitch/config/conf/sip_profiles/external.xml
         - template: jinja
 
-conf/autoload_configs/acl.conf.xml
+conf/autoload_configs/acl.conf.xml:
     file.managed:
         - name: /usr/local/freeswitch/conf/autoload_configs/acl.conf.xml
         - source: salt://freeswitch/config/conf/autoload_configs/acl.conf.xml
