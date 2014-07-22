@@ -5,6 +5,7 @@ conf/vars.xml:
     file.managed:
         - name: /usr/local/freeswitch/conf/vars.xml
         - source: salt://freeswitch/config/conf/vars.xml
+        - template: jinja        
 
 conf/sip_profiles/internal.xml:
     file.managed:
