@@ -27,6 +27,11 @@
       <!-- <node type="allow" cidr="192.168.0.0/24"/> -->
     </list>
 
+    <list name="asterisk_box" default="deny">
+      <node type="allow" cidr="{{ salt['pillar.get']('asterisk:sip:externip', '') }}/32"/>
+    </list>
+
   </network-lists>
 </configuration>
+
 

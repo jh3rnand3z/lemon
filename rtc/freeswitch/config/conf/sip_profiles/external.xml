@@ -37,6 +37,7 @@
     <!--<param name="disable-srv503" value="true"/>-->
     <!-- This could be set to "passive" -->
     <param name="local-network-acl" value="localnet.auto"/>
+    <param name="apply-inbound-acl" value="asterisk_box"/>
     <param name="manage-presence" value="false"/>
 
     <!-- used to share presence info across sofia profiles
