@@ -11,6 +11,7 @@ conf/sip_profiles/internal.xml:
     file.managed:
         - name: /usr/local/freeswitch/conf/sip_profiles/internal.xml
         - source: salt://freeswitch/config/conf/sip_profiles/internal.xml
+        - template: jinja
 
 conf/sip_profiles/external.xml:
     file.managed:
@@ -34,6 +35,12 @@ conf/dialplan/default.xml:
     file.managed:
         - name: /usr/local/freeswitch/conf/dialplan/default.xml
         - source: salt://freeswitch/config/conf/dialplan/default.xml
+        - template: jinja
+
+conf/dialplan/default/00_asterisk_extensions.xml:
+    file.managed:
+        - name: /usr/local/freeswitch/conf/dialplan/default/00_asterisk_extensions.xml
+        - source: salt://freeswitch/config/conf/dialplan/default/00_asterisk_extensions.xml
         - template: jinja
 
 init.d/freeswitch:

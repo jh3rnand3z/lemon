@@ -28,6 +28,7 @@
 
   <settings>
 
+    <param name="apply-inbound-acl" value="asterisks"/>
 
     <!-- inject delay between dtmf digits on send to help some slow interpreters (also per channel with rtp_digit_delay var -->
     <!-- <param name="rtp-digit-delay" value="40"/>-->
@@ -81,7 +82,7 @@
     <param name="log-auth-failures" value="false"/>
     <param name="forward-unsolicited-mwi-notify" value="false"/>
 
-    <param name="context" value="public"/>
+    <param name="context" value="default"/>
     <param name="rfc2833-pt" value="101"/>
     <!-- port to bind to for sip traffic -->
     <param name="sip-port" value="$${internal_sip_port}"/>
