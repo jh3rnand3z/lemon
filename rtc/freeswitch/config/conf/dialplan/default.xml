@@ -741,6 +741,14 @@
       </condition>
     </extension>
 
+    <extension name="ast_extens">
+      <condition field="destination_number" expression="^(2\d{3})$">
+        <action application="set" data="hangup_after_bridge=true"/>
+        <action application="bridge" data="sofia/external/$1@{{ salt['pillar.get']('asterisk:sip:externip', '') }}"/>
+        <action application="hangup"/>
+      </condition>
+    </extension>
+
     <!--
 	You can place files in the default directory to get included.
     -->
@@ -784,14 +792,6 @@
       <condition field="${module_exists(mod_enum)}" expression="true"/>
       <condition field="destination_number" expression="^(.*)$">
 	<action application="transfer" data="$1 enum"/>
-      </condition>
-    </extension>
-
-    <extension name="ast_extens">
-      <condition field="destination_number" expression="^(2\d{3})$">
-        <action application="set" data="hangup_after_bridge=true"/>
-        <action application="bridge" data="sofia/external/$1@{{ salt['pillar.get']('asterisk:sip:externip', '') }}"/>
-        <action application="hangup"/>
       </condition>
     </extension>
 
