@@ -16,10 +16,10 @@ conf/sip_profiles/external.xml:
         - name: /usr/local/freeswitch/conf/sip_profiles/external.xml
         - source: salt://freeswitch/config/conf/sip_profiles/external.xml
 
-conf/autoload/switch.conf.xml:
+conf/autoload_configs/switch.conf.xml:
     file.managed:
-        - name: /usr/local/freeswitch/conf/autoload/switch.conf.xml
-        - source: salt://freeswitch/config/conf/autoload/switch.conf.xml
+        - name: /usr/local/freeswitch/conf/autoload_configs/switch.conf.xml
+        - source: salt://freeswitch/config/conf/autoload_configs/switch.conf.xml
 
 init.d/freeswitch:
     file.managed:
