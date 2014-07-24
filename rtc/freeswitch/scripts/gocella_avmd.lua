@@ -20,6 +20,9 @@ function onInput(session, type, obj)
     if type == "dtmf" and obj['digit'] == '9' and human_detected == false then
         human_detected = true;
         session:execute("avmd","stop");
+
+        -- hangup
+        session:hangup();
         return "break";
     end
  
@@ -53,6 +56,3 @@ session:sleep(500);
 session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
 
 session:execute("avmd","stop");
-
--- hangup
-session:hangup();
