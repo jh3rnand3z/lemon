@@ -6,14 +6,14 @@ function onInput(session, type, obj)
     if type == "dtmf" and obj['digit'] == '0' and human_detected == false then
         human_detected = true;
         session:execute("avmd","stop");
-        session:execute("transfer","2005");
+        session:transfer("2005", "XML", "default");
         return "break";
     end
 
     if type == "dtmf" and obj['digit'] == '1' and human_detected == false then
         human_detected = true;
         session:execute("avmd","stop");
-        session:execute("transfer","2005");
+        session:transfer("2005", "XML", "default");
         return "break";
     end
 
@@ -35,6 +35,7 @@ end
 session:answer();
 session:setAutoHangup(false);
 session:setInputCallback("onInput");
+
 session:execute("avmd","start");
 
 -- sleep a second
@@ -45,5 +46,5 @@ session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
 
 session:execute("avmd","stop");
 
-session:transfer("2005", "XML", "default");
-
+-- hangup
+session:hangup();
