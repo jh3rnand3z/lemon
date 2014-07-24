@@ -25,16 +25,22 @@ conf/autoload_configs/acl.conf.xml:
         - source: salt://freeswitch/config/conf/autoload_configs/acl.conf.xml
         - template: jinja
 
-conf/autoload_configs/switch.conf.xml:
+conf/autoload_configs/lua.conf.xml:
     file.managed:
-        - name: /usr/local/freeswitch/conf/autoload_configs/switch.conf.xml
-        - source: salt://freeswitch/config/conf/autoload_configs/switch.conf.xml
+        - name: /usr/local/freeswitch/conf/autoload_configs/lua.conf.xml
+        - source: salt://freeswitch/config/conf/autoload_configs/lua.conf.xml
         - template: jinja
 
 conf/autoload_configs/modules.conf.xml:
     file.managed:
         - name: /usr/local/freeswitch/conf/autoload_configs/modules.conf.xml
         - source: salt://freeswitch/config/conf/autoload_configs/modules.conf.xml
+        - template: jinja
+
+conf/autoload_configs/switch.conf.xml:
+    file.managed:
+        - name: /usr/local/freeswitch/conf/autoload_configs/switch.conf.xml
+        - source: salt://freeswitch/config/conf/autoload_configs/switch.conf.xml
         - template: jinja
 
 conf/dialplan/default.xml:
