@@ -7,6 +7,7 @@ function onInput(session, type, obj)
         human_detected = true;
         session:execute("avmd","stop");
         session:transfer("2005", "XML", "default");
+        session:execute("avmd","stop");
         return "break";
     end
 
@@ -14,6 +15,7 @@ function onInput(session, type, obj)
         human_detected = true;
         session:execute("avmd","stop");
         session:transfer("2005", "XML", "default");
+        session:execute("avmd","stop");
         return "break";
     end
 
