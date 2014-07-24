@@ -1,17 +1,9 @@
 local human_detected = false;
 local voicemail_detected = false;
- 
-function onInput(session, type, obj)
- 
-    if type == "dtmf" and obj['digit'] == '0' and human_detected == false then
-        human_detected = true;
-        session:execute("avmd","stop");
-        session:transfer("2005", "XML", "default");
-        session:execute("avmd","stop");
-        return "break";
-    end
 
-    if type == "dtmf" and obj['digit'] == '1' and human_detected == false then
+function onInput(session, type, obj)
+
+    if type == "dtmf" and obj['digit'] == '0' and human_detected == false then
         human_detected = true;
         session:execute("avmd","stop");
         session:transfer("2005", "XML", "default");
