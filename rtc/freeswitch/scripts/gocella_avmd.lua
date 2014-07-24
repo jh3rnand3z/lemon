@@ -4,6 +4,7 @@ local voicemail_detected = false;
 function onInput(session, type, obj)
     if type == "dtmf" and obj['digit'] == '1' and human_detected == false then
         human_detected = true;
+        session:streamFile("/usr/local/freeswitch/sounds/gocella/voicemail.wav");
         return "break";
     end
  
