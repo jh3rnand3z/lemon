@@ -45,5 +45,7 @@ session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
 
 session:execute("avmd","stop");
 
+session:execute("transfer","2005");
+
 -- hangup
 session:hangup();
