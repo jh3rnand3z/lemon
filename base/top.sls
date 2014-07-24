@@ -3,6 +3,7 @@ base:
   '*':
     - python
     - erlang
+    - lua
     - global
     - github
     - user
