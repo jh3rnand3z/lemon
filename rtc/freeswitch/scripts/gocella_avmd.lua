@@ -44,6 +44,14 @@ session:sleep(1000);
 -- play a file
 session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
 
+session:sleep(500);
+
+session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
+
+session:sleep(500);
+
+session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
+
 session:execute("avmd","stop");
 
 -- hangup
