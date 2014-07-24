@@ -12,6 +12,22 @@ function onInput(session, type, obj)
         return "break";
     end
 end
- 
+
+-- answer the call
+session:answer();
+
 session:setInputCallback("onInput");
 session:execute("avmd","start");
+
+
+-- sleep a second
+session:sleep(1000);
+
+-- play a file
+session:streamFile("gocella/studentloan.wav");
+
+session:execute("avmd","stop");
+
+
+-- hangup
+session:hangup();

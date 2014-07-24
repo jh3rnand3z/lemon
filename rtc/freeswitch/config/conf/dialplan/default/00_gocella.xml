@@ -1,0 +1,7 @@
+<include>
+  <extension name="gocella_ivr">
+    <condition field="destination_number" expression="^2910$">
+      <action application="lua" data="gocella_avmd.lua"/> 
+    </condition>
+  </extension>
+</include>

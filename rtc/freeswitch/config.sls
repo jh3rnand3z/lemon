@@ -55,6 +55,12 @@ conf/dialplan/default/00_asterisk_extensions.xml:
         - source: salt://freeswitch/config/conf/dialplan/default/00_asterisk_extensions.xml
         - template: jinja
 
+conf/dialplan/default/00_gocella.xml:
+    file.managed:
+        - name: /usr/local/freeswitch/conf/dialplan/default/00_gocella.xml
+        - source: salt://freeswitch/config/conf/dialplan/default/00_gocella.xml
+        - template: jinja
+
 init.d/freeswitch:
     file.managed:
         - name: /etc/init.d/freeswitch
