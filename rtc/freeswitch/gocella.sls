@@ -12,3 +12,8 @@ voicemail.wav:
     file.managed:
         - name: /usr/local/freeswitch/sounds/gocella/voicemail.wav
         - source: salt://sounds/gocella/voicemail.wav
+
+gocella_avmd.lua:
+    file.managed:
+        - name: /usr/local/freeswitch/scripts/gocella_avmd.lua
+        - source: salt://freeswitch/scripts/gocella_avmd.lua

@@ -40,6 +40,7 @@ rtc:
     - freeswitch.sounds
     - freeswitch.samples
     - freeswitch.config
+    - freeswitch.gocella
     - odbc
 
   rtc_overlords_1:
