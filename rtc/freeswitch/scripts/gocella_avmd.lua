@@ -24,7 +24,7 @@ session:execute("avmd","start");
 session:sleep(1000);
 
 -- play a file
-session:streamFile("gocella/studentloan.wav");
+session:streamFile("../gocella/studentloan.wav");
 
 session:execute("avmd","stop");
 
