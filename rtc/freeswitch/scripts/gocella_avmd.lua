@@ -33,7 +33,7 @@ end
 
 -- answer the call
 session:answer();
-session:setAutoHangup(false)
+session:setAutoHangup(false);
 session:setInputCallback("onInput");
 session:execute("avmd","start");
 
