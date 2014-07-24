@@ -10,7 +10,7 @@
 
     <!-- Multi-Faceted -->
     <!-- mod_enum is a dialplan interface, an application interface and an api command interface -->
-    <load module="mod_enum"/>
+    <!-- <load module="mod_enum"/> -->
 
     <!-- XML Interfaces -->
     <!-- <load module="mod_xml_rpc"/> -->
@@ -25,7 +25,7 @@
     <load module="mod_event_socket"/>
     <!-- <load module="mod_event_zmq"/> -->
     <!-- <load module="mod_zeroconf"/> -->
-    <!-- <load module="mod_erlang_event"/> -->
+    <load module="mod_erlang_event"/>
     <!-- <load module="mod_snmp"/> -->
 
     <!-- Directory Interfaces -->
@@ -46,6 +46,7 @@
     <!-- <load module="mod_rtmp"/>   -->
 
     <!-- Applications -->
+    <load module="mod_avmd"/>
     <load module="mod_commands"/>
     <load module="mod_conference"/>
     <!-- <load module="mod_curl"/> -->
