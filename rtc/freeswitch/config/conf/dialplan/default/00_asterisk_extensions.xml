@@ -4,3 +4,10 @@
     <action application="bridge" data="sofia/external/$1@{{ salt['pillar.get']('asterisk:sip:externip', '') }}"/>
   </condition>
 </extension>
+
+<extension name="to_asterisk_21XX">
+  <condition field="destination_number" expression="^(21[0-9]{2}\d)$">
+    <action application="set" data="hangup_after_bridge=true"/>
+    <action application="bridge" data="sofia/external/$1@{{ salt['pillar.get']('asterisk:sip:externip', '') }}"/>
+  </condition>
+</extension>
