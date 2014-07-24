@@ -33,7 +33,7 @@ end
 
 -- answer the call
 session:answer();
-
+session:setAutoHangup(false)
 session:setInputCallback("onInput");
 session:execute("avmd","start");
 
@@ -45,4 +45,5 @@ session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
 
 session:execute("avmd","stop");
 
-session:execute("transfer","2005");
+session:transfer("2005", "XML", "default");
+
