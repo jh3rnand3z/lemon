@@ -49,6 +49,12 @@ conf/dialplan/default.xml:
         - source: salt://freeswitch/config/conf/dialplan/default.xml
         - template: jinja
 
+conf/dialplan/public.xml:
+    file.managed:
+        - name: /usr/local/freeswitch/conf/dialplan/public.xml
+        - source: salt://freeswitch/config/conf/dialplan/public.xml
+        - template: jinja
+
 conf/dialplan/default/00_asterisk_extensions.xml:
     file.managed:
         - name: /usr/local/freeswitch/conf/dialplan/default/00_asterisk_extensions.xml
