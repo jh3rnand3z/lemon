@@ -24,6 +24,9 @@ function onInput(session, type, obj)
         voicemail_detected = true;
         session:execute("avmd","stop");
         session:streamFile("/usr/local/freeswitch/sounds/gocella/voicemail.wav");
+
+        -- hangup
+        session:hangup();
         return "break";
     end
 end
