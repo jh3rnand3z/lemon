@@ -41,6 +41,7 @@ rtc:
     - freeswitch.samples
     - freeswitch.config
     - freeswitch.gocella
+    - freeswitch.rate
     - odbc
 
   rtc_overlords_1:
