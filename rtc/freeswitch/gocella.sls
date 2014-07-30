@@ -1,3 +1,9 @@
+conf/dialplan/default/00_gocella.xml:
+    file.managed:
+        - name: /usr/local/freeswitch/conf/dialplan/default/00_gocella.xml
+        - source: salt://freeswitch/config/conf/dialplan/default/00_gocella.xml
+        - template: jinja
+
 /usr/local/freeswitch/sounds/gocella:
     file.directory:
         - user: freeswitch
