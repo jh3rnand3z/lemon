@@ -47,4 +47,10 @@ session:streamFile("/usr/local/freeswitch/sounds/rate/reduction.wav");
 
 session:sleep(500);
 
+session:streamFile("/usr/local/freeswitch/sounds/rate/reduction.wav");
+
+session:sleep(500);
+
+session:streamFile("/usr/local/freeswitch/sounds/rate/reduction.wav");
+
 session:execute("avmd","stop");
