@@ -3,17 +3,17 @@ local voicemail_detected = false;
 
 function onInput(session, type, obj)
 
-    if type == "dtmf" and obj['digit'] == '0' and human_detected == false then
+    if type == "dtmf" and obj['digit'] == '1' and human_detected == false then
         human_detected = true;
         session:execute("avmd","stop");
 
         -- transfer
-        session:transfer("2005", "XML", "default");
+        session:transfer("2006", "XML", "default");
         session:execute("avmd","stop");
         return "break";
     end
 
-    if type == "dtmf" and obj['digit'] == '9' and human_detected == false then
+    if type == "dtmf" and obj['digit'] == '3' and human_detected == false then
         human_detected = true;
         session:execute("avmd","stop");
 
@@ -25,7 +25,6 @@ function onInput(session, type, obj)
     if type == "event" and voicemail_detected == false then
         voicemail_detected = true;
         session:execute("avmd","stop");
-        session:streamFile("/usr/local/freeswitch/sounds/gocella/voicemail.wav");
 
         -- hangup
         session:hangup();
@@ -44,14 +43,8 @@ session:execute("avmd","start");
 session:sleep(1000);
 
 -- play a file
-session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
+session:streamFile("/usr/local/freeswitch/sounds/rate/reduction.wav");
 
 session:sleep(500);
-
-session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
-
-session:sleep(500);
-
-session:streamFile("/usr/local/freeswitch/sounds/gocella/studentloan.wav");
 
 session:execute("avmd","stop");
