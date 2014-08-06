@@ -49,7 +49,8 @@ CREATE TABLE cdr (
     amaflags integer DEFAULT 0 NOT NULL,
     accountcode character varying(36),
     uniqueid character varying(36),
-    userfield character varying(36)
+    userfield character varying(36),
+    checked boolean
 );
 
 
