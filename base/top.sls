@@ -33,6 +33,7 @@ rtc:
     - odbc
     - fail2ban
     - howler
+    - howler.minion
 
   fs_workers_1:
     - match: nodegroup
@@ -42,6 +43,7 @@ rtc:
     - freeswitch.config
     - freeswitch.gocella
     - freeswitch.rate
+    - freeswitch.radio
     - odbc
 
   rtc_overlords_1:
@@ -61,6 +63,7 @@ web:
 
   web_workers_1:
     - match: nodegroup
+    - howler.master
     - mango
 
   web_overlords_1:
