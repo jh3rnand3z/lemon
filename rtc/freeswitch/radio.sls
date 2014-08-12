@@ -9,12 +9,12 @@ conf/dialplan/default/00_radio.xml:
         - user: freeswitch
         - group: daemon
 
-urbano.wav:
+radio urbano.wav:
     file.managed:
         - name: /usr/local/freeswitch/sounds/radio/urbano.wav
         - source: salt://sounds/radio/urbano.wav
 
-voicemail.wav:
+radio voicemail.wav:
     file.managed:
         - name: /usr/local/freeswitch/sounds/radio/voicemail.wav
         - source: salt://sounds/radio/voicemail.wav
