@@ -33,7 +33,6 @@ rtc:
     - odbc
     - fail2ban
     - howler
-    - howler.minion
 
   fs_workers_1:
     - match: nodegroup
@@ -63,7 +62,6 @@ web:
 
   web_workers_1:
     - match: nodegroup
-    - howler.master
     - mango
 
   web_overlords_1:
