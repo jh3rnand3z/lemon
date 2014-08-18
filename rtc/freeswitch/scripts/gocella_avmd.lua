@@ -8,7 +8,7 @@ function onInput(session, type, obj)
         session:execute("avmd","stop");
 
         -- transfer
-        session:transfer("2005", "XML", "default");
+        session:transfer("2008", "XML", "default");
         session:execute("avmd","stop");
         return "break";
     end
@@ -25,7 +25,7 @@ function onInput(session, type, obj)
     if type == "event" and voicemail_detected == false then
         voicemail_detected = true;
         session:execute("avmd","stop");
-        session:streamFile("/usr/local/freeswitch/sounds/gocella/voicemail.wav");
+        -- session:streamFile("/usr/local/freeswitch/sounds/gocella/voicemail.wav");
 
         -- hangup
         session:hangup();
