@@ -65,3 +65,9 @@ compile asterisk:
         - cwd: /usr/src/asterisk-11.9.0/
         - require:
             - cmd: untar asterisk
+
+Run only if dialplan changed:
+  cmd.wait:
+    - name: asterisk -rx 'dialplan reload'
+    - watch:
+        - file: extensions.conf
