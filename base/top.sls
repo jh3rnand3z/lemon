@@ -43,6 +43,7 @@ rtc:
     - freeswitch.gocella
     - freeswitch.rate
     - freeswitch.radio
+    - freeswitch.munico
     - odbc
 
   rtc_overlords_1:
