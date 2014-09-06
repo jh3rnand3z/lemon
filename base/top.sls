@@ -33,7 +33,8 @@ rtc:
     - odbc
     - fail2ban
     - howler
-
+    - monit
+    
   fs_workers_1:
     - match: nodegroup
     - freeswitch
@@ -64,7 +65,9 @@ web:
   web_workers_1:
     - match: nodegroup
     - mango
+    - supervisor
 
   web_overlords_1:
     - match: nodegroup
+    - seed
     - nginx
