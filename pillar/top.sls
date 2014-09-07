@@ -3,6 +3,7 @@ base:
     '*':
         - settings
 
+
 rtc:
 
     ast_workers_1:
@@ -22,4 +23,12 @@ web:
 
     web_workers_1:
         - match: nodegroup
-        - some_pillar_stuff
+        - mango
+        - nginx
+        - supervisor
+
+    web_workers_2:
+        - match: nodegroup
+        - mango
+        - nginx
+        - supervisor
