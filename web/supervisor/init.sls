@@ -1,7 +1,7 @@
-/etc/supervisord.conf:
+/etc/supervisor/supervisord.conf:
   file:
     - managed
-    - source: salt://supervisor/config/supervisord.conf
+    - source: salt://supervisor/conf/supervisord.conf
     - user: root
     - group: root
     - mode: 644
@@ -13,4 +13,4 @@ supervisor:
     - running
     - watch:
       - pkg: supervisor
-      - file: /etc/supervisord.conf
+      - file: /etc/supervisor/supervisord.conf
