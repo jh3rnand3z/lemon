@@ -16,3 +16,10 @@ rtc:
         - freeswitch
         - asterisk
         - odbc
+
+
+web:
+
+    web_workers_1:
+        - match: nodegroup
+        - some_pillar_stuff
