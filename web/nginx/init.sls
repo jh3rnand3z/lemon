@@ -1,7 +1,7 @@
 /etc/nginx/nginx.conf:
   file:
     - managed
-    - source: salt://nginx/config/nginx.conf
+    - source: salt://nginx/conf/nginx.conf
     - user: root
     - group: root
     - mode: 644
