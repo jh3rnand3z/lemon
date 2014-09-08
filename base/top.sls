@@ -34,7 +34,7 @@ rtc:
     - fail2ban
     - howler
     - monit
-    
+
   fs_workers_1:
     - match: nodegroup
     - freeswitch
@@ -63,6 +63,13 @@ rtc:
 web:
 
   web_workers_1:
+    - match: nodegroup
+    - mango
+    - supervisor
+    - seed
+    - nginx
+    
+  web_workers_2:
     - match: nodegroup
     - mango
     - supervisor
