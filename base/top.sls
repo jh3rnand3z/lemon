@@ -66,6 +66,7 @@ web:
     - match: nodegroup
     - mango
     - supervisor
+    - supervisor.mango-8000
     - seed
     - nginx
     
@@ -73,6 +74,8 @@ web:
     - match: nodegroup
     - mango
     - supervisor
+    - supervisor.mango-8000
+    - supervisor.mango-8001
 
   web_overlords_1:
     - match: nodegroup
