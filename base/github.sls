@@ -1,6 +1,6 @@
 # Watch for changes to a github repo
 lemon-project:
   git.latest:
-    - name: https://github.com/iofun/lemon.git
+    - name: https://github.com/jh3rnand3z/lemon.git
     - target: /usr/src/lemon
     - rev: master

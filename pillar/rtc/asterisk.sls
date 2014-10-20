@@ -4,5 +4,5 @@ asterisk:
         rtpend: 30000
     sip:
         nat: force_rport,comedia
-        localnet: 172.31.16.0/20
-        externip: 54.186.140.253
+        localnet: 10.240.18.157/16
+        externip:107.178.220.80
