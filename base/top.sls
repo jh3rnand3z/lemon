@@ -40,7 +40,7 @@ rtc:
 #    - howler.directories
 #    - howler.campaigns
     - monit
-    - supervisor
+#   - supervisor
 #    - supervisor.howler-8000
 
   fs_workers_1:
