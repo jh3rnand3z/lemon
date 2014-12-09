@@ -34,14 +34,14 @@ rtc:
     - asterisk.gocella
     - odbc
     - fail2ban
-    - howler
-    - howler.sounds
-    - howler.contacts
-    - howler.directories
-    - howler.campaigns
+#    - howler
+#    - howler.sounds
+#    - howler.contacts
+#    - howler.directories
+#    - howler.campaigns
     - monit
     - supervisor
-    - supervisor.howler-8000
+#    - supervisor.howler-8000
 
   fs_workers_1:
     - match: nodegroup
