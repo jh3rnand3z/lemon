@@ -1,4 +1,4 @@
-asterisk:
+asterisk db:
     postgres_database.present:
         - name: asterisk
         - encoding: UTF8

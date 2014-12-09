@@ -15,8 +15,7 @@ data:
     - match: nodegroup
     - postgresql
     - asterisk
-    - monit
-
+ 
   mongo_workers_1:
     - match: nodegroup
     - mongodb
