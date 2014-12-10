@@ -29,6 +29,7 @@ rtc:
     - asterisk
     - asterisk.sounds
     - asterisk.samples
+    - asterisk.codec
     - asterisk.config
     - asterisk.gocella
     - odbc
